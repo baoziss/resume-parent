@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.baoziss.dao.InformationDAO">
+
+	<resultMap id="inforMap" type="information">
+		<id column="id" property="id"/>
+		<result column="name" property="name"/>
+		<result column="sex" property="sex"/>
+		<result column="age" property="age"/>
+		<result column="money" property="money"/>
+		<result column="bir" property="bir"/>
+		<result column="degree" property="degree"/>
+		<result column="school" property="school"/>
+		<result column="major" property="major"/>
+		<result column="location" property="location"/>
+		<result column="home_location" property="homeLocation"/>
+		<result column="phone" property="phone"/>
+		<result column="email" property="email"/>
+		<result column="self_introduce" property="selfIntroduce"/>
+		<collection property="skills" column="id"
+                    select="com.baoziss.dao.SkillDAO.selectByInfor" javaType="list" ofType="skill"/>
+		<collection property="projects" column="id"
+                    select="com.baoziss.dao.ProjectDAO.selectByInfor" javaType="list" ofType="project"/>
+	</resultMap>
+
+	<sql id="inforSql">
+		id,name,sex,age,money,bir,degree,school,major,location,home_location,phone,email,self_introduce
+	</sql>
+	<select id="select" resultMap="inforMap" parameterType="string">
+		select <include refid="inforSql"/> from information where id = #{id,jdbcType=VARCHAR}
+	</select>
+
+</mapper>
