@@ -1,0 +1,3 @@
+在web中resources中的script数据库执行脚本
+更改config文件夹中本地mysql地址
+部署tomcat，访问http://localhost/resume/resume/getInfor

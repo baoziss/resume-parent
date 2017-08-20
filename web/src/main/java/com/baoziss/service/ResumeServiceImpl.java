@@ -1,6 +1,5 @@
 package com.baoziss.service;
 
-import com.baoziss.annotation.JedisQuery;
 import com.baoziss.dao.InformationDAO;
 import com.baoziss.entity.Information;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +19,6 @@ public class ResumeServiceImpl implements ResumeService {
     /**
      * 根据id获取一条简历
      */
-    @JedisQuery
     public Information getInfors(String id) {
         Information select = informationDAO.select(id);
         return select;

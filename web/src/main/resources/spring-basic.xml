@@ -47,12 +47,12 @@
     <!--配置注解式事务生效-->
     <tx:annotation-driven transaction-manager="transactionManager" />
 
-    <bean id="jedisAdvice" class="com.baoziss.advice.ResumeAdvice"/>
+    <!--<bean id="jedisAdvice" class="com.baoziss.advice.ResumeAdvice"/>-->
 
-    <aop:config>
-        <aop:pointcut id="ac" expression="execution(* com.baoziss.service.ResumeServiceImpl.*(..)))"/>
-        <aop:advisor advice-ref="jedisAdvice" pointcut-ref="ac" order="1"/>
-    </aop:config>
+    <!--<aop:config>-->
+        <!--<aop:pointcut id="ac" expression="execution(* com.baoziss.service.ResumeServiceImpl.*(..)))"/>-->
+        <!--<aop:advisor advice-ref="jedisAdvice" pointcut-ref="ac" order="1"/>-->
+    <!--</aop:config>-->
 
 
 </beans>
